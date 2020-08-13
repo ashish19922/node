@@ -1,6 +1,6 @@
-const Balance = require('../models/balancesheet.model');
+const Balance = require('../models/balancesheet.model.js');
 
-exports.create = (req,res) =>{
+exports.create = (req, res) =>{
    if(!req.body.name){
        return res.status(400).send({
            message: "does not contain balance body"
@@ -23,7 +23,14 @@ exports.create = (req,res) =>{
 };
 
 exports.findAll = (req,res) =>{
-
+    Balance.find()
+    .then(notes => {
+        res.send(notes);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
 };
 
 exports.findOne = (req,res) =>{

@@ -7,4 +7,4 @@ const balanceSheet = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('balance', balanceSheet);
+module.exports = mongoose.model('Balance', balanceSheet);

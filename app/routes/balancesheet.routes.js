@@ -1,7 +1,6 @@
 module.exports = (app) => {
 
-    const balance = require('../controllers/balancesheet.controller');
-
+    const balance = require('../controllers/balancesheet.controller.js');
     /**
      * create balnce sheet
      */
@@ -10,9 +9,9 @@ module.exports = (app) => {
     /**
      * retrive all balancesheet
      */
-
+    
      app.get('/balance', balance.findAll);
-
+     
      app.get('/balance/:balanceId', balance.findOne);
 
      app.put('/balance/:balanceId', balance.update);
